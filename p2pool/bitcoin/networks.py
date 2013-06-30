@@ -7,25 +7,11 @@ from . import data
 from p2pool.util import math, pack
 from operator import *
 
-def get_subsidy(nCap, nMaxSubsidy, bnTarget):
-    #bnLowerBound = 0.01
-    #bnUpperBound = bnSubsidyLimit = nMaxSubsidy
-    #bnTargetLimit = 0x00000fffff000000000000000000000000000000000000000000000000000000
-
-    #while bnLowerBound + 0.01 <= bnUpperBound:
-    #    bnMidValue = (bnLowerBound + bnUpperBound) / 2
-    #    if pow(bnMidValue, nCap) * bnTargetLimit > pow(bnSubsidyLimit, nCap) * bnTarget:
-    #        bnUpperBound = bnMidValue
-    #    else:
-    #        bnLowerBound = bnMidValue
-
-    #nSubsidy = round(bnMidValue, 2)
-
-    #if nSubsidy > bnMidValue:
-    #    nSubsidy = nSubsidy - 0.01
-		
-	nSubsidy=3.5#add by ComosCoin-DEV
-    return int(nSubsidy * 1000000)
+def get_subsidy(nCap, nMaxSubsidy, bnTarget):		
+	#nSubsidy=3.5#add by ComosCoin-DEV	
+    return int(3.5 * 1000000)
+	
+	
 
 nets = dict(
     CosmosCoin=math.Object(
