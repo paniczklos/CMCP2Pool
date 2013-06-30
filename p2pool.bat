@@ -1,1 +1,1 @@
-screen -d -m -S RCHP2Pool /root/cosmoscoin/p2pool/run_p2pool.py --net CosmosCoin -a Bv4e2e1jXSDYc9sytwYAQ2Fna6qPuBkDCY -f 1.5 --give-author 0
+screen -d -m -S CMCP2Pool /root/cosmoscoin/p2pool/run_p2pool.py --net CosmosCoin -a Bv4e2e1jXSDYc9sytwYAQ2Fna6qPuBkDCY -f 1.5 --give-author 0
