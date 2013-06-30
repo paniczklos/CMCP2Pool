@@ -1,1 +1,4 @@
-screen -d -m -S CMCP2Pool /root/cosmoscoin/p2pool/run_p2pool.py --net CosmosCoin -bitcoind-address Bv4e2e1jXSDYc9sytwYAQ2Fna6qPuBkDCY -f 1.5 --give-author 0
+screen -d -m -S CMCP2Pool /root/cosmoscoin/CMCP2Pool/run_p2pool.py --net CosmosCoin -f 0.5 --give-author 0
+
+
+python run_p2pool.py --net CosmosCoin -f 0.5 --give-author 0
