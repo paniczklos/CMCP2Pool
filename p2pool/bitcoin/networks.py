@@ -16,9 +16,9 @@ def get_subsidy(nCap, nMaxSubsidy, bnTarget):
 nets = dict(
     CosmosCoin=math.Object(
         P2P_PREFIX='e4e8e9e5'.decode('hex'),
-        P2P_PORT=19990,//add by ComosCoin-DEV
-        ADDRESS_VERSION=27,//add by ComosCoin-DEV
-        RPC_PORT=19991,//add by ComosCoin-DEV
+        P2P_PORT=19990,#add by ComosCoin-DEV
+        ADDRESS_VERSION=27,#add by ComosCoin-DEV
+        RPC_PORT=19991,#add by ComosCoin-DEV
         RPC_CHECK=defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
             'CosmosCoinaddress' in (yield bitcoind.rpc_help()) and
             not (yield bitcoind.rpc_getinfo())['testnet']
