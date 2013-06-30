@@ -24,7 +24,7 @@ def get_subsidy(nCap, nMaxSubsidy, bnTarget):
     #if nSubsidy > bnMidValue:
     #    nSubsidy = nSubsidy - 0.01
 		
-	nSubsidy=3.5//add by ComosCoin-DEV
+	nSubsidy=3.5#add by ComosCoin-DEV
     return int(nSubsidy * 1000000)
 
 nets = dict(
