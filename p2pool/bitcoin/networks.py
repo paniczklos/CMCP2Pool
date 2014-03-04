@@ -14,24 +14,28 @@ def get_subsidy(nCap, nMaxSubsidy, bnTarget):
 	
 
 nets = dict(
-    CosmosCoin=math.Object(
-        P2P_PREFIX='e4e8e9e5'.decode('hex'),
-        P2P_PORT=19990,#add by ComosCoin-DEV
-        ADDRESS_VERSION=27,#add by ComosCoin-DEV
-        RPC_PORT=19991,#add by ComosCoin-DEV
+    noblecoin=math.Object(
+        P2P_PREFIX='c0dbf1fd'.decode('hex'),
+        P2P_PORT=55884,
+        ADDRESS_VERSION=21,
+        RPC_PORT=55883,
         RPC_CHECK=defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
-            'CosmosCoinaddress' in (yield bitcoind.rpc_help()) and
+            'noblecoinaddress' in (yield bitcoind.rpc_help()) and
             not (yield bitcoind.rpc_getinfo())['testnet']
         )),
-        SUBSIDY_FUNC=lambda target: get_subsidy(6, 100, target),
-        BLOCKHASH_FUNC=lambda data: pack.IntType(256).unpack(__import__('ltc_scrypt').getPoWHash(data)),
+	#SUBSIDY_FUNC=lambda target: get_subsidy(6, 100, target),
+        SUBSIDY_FUNC=lambda height: 5000*100000000,
+	BLOCKHASH_FUNC=lambda data: pack.IntType(256).unpack(__import__('ltc_scrypt').getPoWHash(data)),
         POW_FUNC=lambda data: pack.IntType(256).unpack(__import__('ltc_scrypt').getPoWHash(data)),
-        BLOCK_PERIOD=60, # s 1 minute
-        SYMBOL='CMC',
-        CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'CosmosCoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/CosmosCoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.CosmosCoin'), 'CosmosCoin.conf'),
-        BLOCK_EXPLORER_URL_PREFIX='http://cosmoscoin.com/block/',
-        ADDRESS_EXPLORER_URL_PREFIX='http://cosmoscoin.com/address/',
-        SANE_TARGET_RANGE=(2**256//2**20//1000 - 1, 2**256//2**20 - 1),
+        BLOCK_PERIOD=30, # s targetspacing
+        SYMBOL='NOBLE',
+        CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'noblecoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/zeitcoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.zeitcoin'), 'zeitcoin.conf'),
+        BLOCK_EXPLORER_URL_PREFIX='http://cryptexplorer.com/block/',
+        ADDRESS_EXPLORER_URL_PREFIX='http://cryptexplorer.com/address/',
+        TX_EXPLORER_URL_PREFIX='http://cryptexplorer.com/transaction/',
+        SANE_TARGET_RANGE=(2**256//1000000000 - 1, 2**256//1000 - 1),
+        DUMB_SCRYPT_DIFF=2**16,
+        DUST_THRESHOLD=1e8,
     ),
     
 )
