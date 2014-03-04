@@ -8,23 +8,23 @@ from p2pool.util import math
 # changes can be done by changing one, then the other
 
 nets = dict(
-    CosmosCoin=math.Object(
-        PARENT=networks.nets['CosmosCoin'],
-        SHARE_PERIOD=30, # seconds
-        CHAIN_LENGTH=24*60*60//30, # shares
-        REAL_CHAIN_LENGTH=24*60*60//30, # shares
-        TARGET_LOOKBEHIND=200, # shares
-        SPREAD=3, # blocks
-        IDENTIFIER='e037d5b8c6923510'.decode('hex'),
-        PREFIX='7208c1a53ef649b0'.decode('hex'),
-        P2P_PORT=19995,#p2pool p2p port
+        noblecoin=math.Object(
+        PARENT=networks.nets['noblecoin'],
+        SHARE_PERIOD=15, # seconds target spacing
+        CHAIN_LENGTH=24*60*60//10, # shares
+        REAL_CHAIN_LENGTH=24*60*60//10, # shares
+        TARGET_LOOKBEHIND=200, # shares coinbase maturity
+        SPREAD=30, # blocks
+        IDENTIFIER='e021a7b8c322482a'.decode('hex'),
+        PREFIX='e280193ae6a4927a'.decode('hex'),
+        P2P_PORT=9184,
         MIN_TARGET=0,
         MAX_TARGET=2**256//2**20 - 1,
         PERSIST=False,
-        WORKER_PORT=19996,#p2pool worker port
-        BOOTSTRAP_ADDRS='198.211.17.160 173.254.207.107 118.250.247.107'.split(' '),
-        ANNOUNCE_CHANNEL='#p2pool-alt',
-        VERSION_CHECK=lambda v: v >= 60004,
+        WORKER_PORT=9188,
+        BOOTSTRAP_ADDRS='p2pool-us.coin-project.org p2pool-eu.coin-project.org p2pool-eu.gotgeeks.com p2pool-us.gotgeeks.com rav3n.dtdns.net doge.dtdns.net pool.hostv.pl p2pool.org p2pool.gotgeeks.com p2pool.dtdns.net solidpool.org taken.pl polishcoin.info pcc.paybtc.pl us-east1.cryptovein.com'.split(' '),
+        ANNOUNCE_CHANNEL='#cryptovein',
+        VERSION_CHECK=lambda v: True,
     ),
     
 )
